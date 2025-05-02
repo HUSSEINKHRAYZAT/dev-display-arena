@@ -1,7 +1,16 @@
 
 import { Button } from '@/components/ui/button';
+import { Atom } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const Hero = () => {
+  const [isRotating, setIsRotating] = useState(false);
+
+  useEffect(() => {
+    // Set initial animation state
+    setIsRotating(true);
+  }, []);
+
   return (
     <section className="pt-24 pb-16 md:pt-32 md:pb-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,8 +18,12 @@ const Hero = () => {
           <span className="text-sm md:text-base font-semibold text-primary animate-fade-in">
             Hello, I'm
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight animate-fade-in-1">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight animate-fade-in-1 flex items-center gap-4">
             Jane Doe
+            <Atom 
+              className={`text-primary ${isRotating ? 'animate-spin-slow' : ''}`}
+              size={48}
+            />
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground animate-fade-in-2">
             Full Stack Developer building creative and functional web applications
