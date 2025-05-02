@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -67,6 +68,26 @@
   }
 }
 
+@keyframes orbitAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes profileAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .animate-spin-slow {
   animation: spin-slow 8s linear infinite;
 }
@@ -88,6 +109,58 @@
 .animate-fade-in-3 {
   animation: fadeIn 0.6s 0.3s ease-out forwards;
   opacity: 0;
+}
+
+.animate-profile-appear {
+  animation: profileAppear 0.8s ease-out forwards;
+}
+
+.shadow-glow {
+  box-shadow: 0 0 25px rgba(255, 136, 0, 0.5);
+}
+
+.profile-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-orbit {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(255, 136, 0, 0.2);
+  border-radius: 50%;
+  animation: orbitAnimation 20s linear infinite;
+}
+
+.profile-orbit-2 {
+  width: 340px;
+  height: 340px;
+  animation-duration: 30s;
+  animation-direction: reverse;
+}
+
+.profile-planet {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background-color: hsl(var(--primary));
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(255, 136, 0, 0.8);
+}
+
+.profile-planet-2 {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 .section-padding {
